@@ -1,9 +1,9 @@
 /*
- * jquery-autocompleter v0.1.10 - 2015-01-22
+ * jquery-autocompleter v0.1.11 - 2017-11-21
  * Simple, easy, customisable and with localStorage cache support.
  * http://github.com/ArtemFitiskin/jquery-autocompleter
  *
- * Copyright 2015 Artem Fitiskin; MIT Licensed
+ * Copyright 2017 Artem Fitiskin; MIT Licensed
  */
 
 ;(function ($, window) {
@@ -39,15 +39,15 @@
         delayTimeout = null,
         localStorageKey = 'autocompleterCache',
         supportLocalStorage = (function () {
-            var supported = typeof window.localStorage !== 'undefined';
+            var supported;
 
-            if (supported) {
-                try {
-                    localStorage.setItem('autocompleter', 'autocompleter');
-                    localStorage.removeItem('autocompleter');
-                } catch (e) {
-                    supported = false;
-                }
+            // solve the problem in safari when opened using `file:` protocol:
+            // SecurityError (DOM Exception 18): The operation is insecure.
+            try {
+                localStorage.setItem('autocompleter', 'autocompleter');
+                localStorage.removeItem('autocompleter');
+            } catch (e) {
+                supported = false;
             }
 
             return supported;

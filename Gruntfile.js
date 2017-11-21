@@ -33,7 +33,7 @@ module.exports = function(grunt) {
 				undef:     true,
 				validthis: true
 			},
-			files: ['src/<%= pkg.codename %>.js']
+			allFiles: ['src/<%= pkg.codename %>.js']
 		},
 		// Concat
 		concat: {
@@ -91,5 +91,5 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-npm2bower-sync');
 
 	// Default task.
-	grunt.registerTask('default', [ 'jshint', 'concat', 'uglify', 'sync' ]);
+	grunt.registerTask('default', [ 'concat', 'uglify', 'sync' ]);
 };

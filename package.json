@@ -2,7 +2,7 @@
   "name": "jquery-autocompleter",
   "id": "autocompleter",
   "codename": "jquery.autocompleter",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "Simple, easy, customisable and with localStorage cache support.",
   "keywords": [
     "jquery-plugin",
@@ -30,6 +30,7 @@
     "grunt-contrib-concat": "^0.5.0",
     "grunt-contrib-jshint": "^0.10.0",
     "grunt-contrib-uglify": "^0.7.0",
+    "grunt-jquerymanifest": "^0.1.4",
     "grunt-npm2bower-sync": "^0.8.1"
   }
 }

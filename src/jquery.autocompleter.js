@@ -31,15 +31,15 @@
         delayTimeout = null,
         localStorageKey = 'autocompleterCache',
         supportLocalStorage = (function () {
-            var supported = typeof window.localStorage !== 'undefined';
+            var supported;
 
-            if (supported) {
-                try {
-                    localStorage.setItem('autocompleter', 'autocompleter');
-                    localStorage.removeItem('autocompleter');
-                } catch (e) {
-                    supported = false;
-                }
+            // solve the problem in safari when opened using `file:` protocol:
+            // SecurityError (DOM Exception 18): The operation is insecure.
+            try {
+                localStorage.setItem('autocompleter', 'autocompleter');
+                localStorage.removeItem('autocompleter');
+            } catch (e) {
+                supported = false;
             }
 
             return supported;
